@@ -18,12 +18,12 @@ int main(void) {
    
     if(number1 < number2) {
         for (int i = number1 + 1; i < number2; i++){
-        printf("%d\n", i);
+            printf("%d\n", i);
         }
     } else {
         for (int i = number1 - 1; i > number2; i--){
-         printf("%d\n", i);    
+            printf("%d\n", i);    
         }
     }
-return 0;       
+    return 0;       
 }
