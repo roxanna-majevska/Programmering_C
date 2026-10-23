@@ -6,6 +6,5 @@ int main(void) {
     while (i <=  10) {
         printf("%d\n", i++);
     }   
-
 return 0;
 }
