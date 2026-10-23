@@ -14,7 +14,6 @@ int main(void){
     lastName[strcspn(lastName, "\n")] = '\0';
 
     printf("Du heter: %s, %s.", lastName, foreName);
-
     return 0;
 
 }
