@@ -11,6 +11,12 @@ int main(void){
     printf("Ange batterinivå i  procent: ");
     scanf("%d", &batteryLevel);
 
+    while (batteryLevel < 0 ||  batteryLevel > 100){
+        printf("Batterinivån ska ligga mellan 0 och 100 %%\n");
+        printf("Ange batterinivå i  procent: ");
+        scanf("%d", &batteryLevel);
+    }
+
     printf("Temperatur: %d C\n", temperature);
     printf("Batterinivå: %d %%\n", batteryLevel);
 
@@ -30,6 +36,5 @@ int main(void){
     } else {
         printf("LED: AV");
     }
-
     return 0;
 }
