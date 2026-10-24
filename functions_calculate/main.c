@@ -30,6 +30,7 @@ int main(void) {
 
        // med if sats - kortare
        if (choice == 'X' || choice == 'x') {
+            printf("Du gjorde %d räkningar!\n", getCallCount()); // lägger funktionsanrop 
             printf("Quit!\n");
             return 0;           
        }
@@ -85,4 +86,5 @@ int main(void) {
         }
     }
         return 0;
+
 }

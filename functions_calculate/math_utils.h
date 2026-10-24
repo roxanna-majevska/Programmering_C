@@ -3,3 +3,5 @@ int sub(int a, int b);
 int mul(int a, int b);
 int divide(int a, int b);
 int power(int a, int b);
+
+int getCallCount(void);
