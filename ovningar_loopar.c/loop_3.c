@@ -14,15 +14,15 @@ int main(void) {
         int sum = number1 + number2;
         printf("Summan är: %d\n", sum);
 
-        printf("villdu fortsätta? (Y/N): ");
+        printf("Vill du fortsätta? (Y/N): ");
         scanf(" %c", &answer);
 
-    } while (answer == 'Y');
+    } while (answer == 'Y' || answer == 'y');
     
     printf("Hej då!");
 
     /*
-    Min första verstion: 
+    Min första version: 
 
     printf("Skriv in tal 1: ");
     scanf("%d", &number1);
