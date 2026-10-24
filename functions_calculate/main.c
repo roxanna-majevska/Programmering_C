@@ -18,7 +18,7 @@ int main(void) {
         printf("X. Quit\n");
         scanf(" %c", &choice);
 
-        /* med switch 
+        /* avsluta program med switch 
         switch (choice) {
         case 'X':
         case 'x':
@@ -55,8 +55,26 @@ int main(void) {
             break;
         case 'D':
         case 'd':
+            //  dela med 0
+
+            //  variant med if sats:
+                
+            /*  if (nrB == 0) {
+                printf("Kan inte dela med 0!");
+                printf("\nSkriv in andra talet:\n");
+                scanf("%d", &nrB);
+            } else {
+                printf("\nResultat: %d\n", divide(nrA, nrB));
+            }  */
+           
+            // variant med while - kortare:
+            while(nrB == 0) {
+                printf("Kan inte dela med 0!");
+                printf("\nSkriv in andra talet:\n");
+                scanf("%d", &nrB);
+            }
             printf("\nResultat: %d\n", divide(nrA, nrB));
-            break;
+            break;       
         case 'E':
         case 'e':
             printf("\nResultat: %d\n", power(nrA, nrB));
