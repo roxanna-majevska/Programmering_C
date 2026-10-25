@@ -7,6 +7,7 @@ int main(void) {
     char choice;
     int nrA;
     int nrB;
+    char op;
 
     while (1) {
         printf("\nVälj en funktion:\n");
@@ -15,6 +16,7 @@ int main(void) {
         printf("C. Mul\n");
         printf("D. Div\n");
         printf("E. Pow\n");
+        printf("F. Utryck\n");
         printf("X. Quit\n");
         scanf(" %c", &choice);
 
@@ -33,6 +35,34 @@ int main(void) {
             printf("Du gjorde %d räkningar!\n", getCallCount()); // lägger funktionsanrop 
             printf("Quit!\n");
             return 0;           
+       }
+       // förenklat variant med ett uttryck på en gång
+        if (choice == 'F' || choice == 'f') {
+            printf("Skriv in ett uttryck: \n");
+            scanf("%d %c%d", &nrA, &op, &nrB);
+            switch (op) {    
+            case '+':
+                printf("\nResultat: %d\n", add(nrA, nrB));
+                break;
+            case '-':
+                printf("\nResultat: %d\n", sub(nrA, nrB));
+                break;
+            case '*':
+                printf("\nResultat: %d\n", mul(nrA, nrB));   
+                break;
+            case '/':
+                while(nrB == 0) {
+                    printf("Kan inte dela med 0!");
+                    printf("\nSkriv in andra talet:\n");
+                    scanf("%d", &nrB);
+                }
+                printf("\nResultat: %d\n", divide(nrA, nrB));
+                break;       
+            default:
+                printf("Okänt tecken!\n");
+                break;
+            }
+            continue;
        }
 
         printf("\nSkriv in första talet:\n");
@@ -86,5 +116,4 @@ int main(void) {
         }
     }
         return 0;
-
 }
