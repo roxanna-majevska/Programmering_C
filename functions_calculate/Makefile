@@ -1,14 +1,28 @@
-PROG = calc.exe
-SRC = main.c math_utils.c
-CFLAGS = -g
-LIBS =
+calc.exe: main.c math_utils.c math_utils.h
+	gcc -std=c11 -Wall -Wextra -Wpedantic -g main.c math_utils.c -o calc.exe
 
-all: $(PROG)
-
-$(PROG): $(SRC)
-	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(SRC) $(LIBS)
+run: calc.exe
+	.\calc.exe
 
 clean:
-	rm -f $(PROG)
+	del /Q calc.exe
 
-.PHONY: all clean
+.PHONY: run clean
+
+# varianten med variabler - svårare att läsa, men enklare att modifiera
+
+#CC = gcc
+#CFLAGS = -std=c11 -Wall -Wextra -Wpedantic -g
+#TARGET = calc.exe
+#SOURCES = main.c math_utils.c
+
+#$(TARGET): $(SOURCES) math_utils.h
+#	$(CC) $(CFLAGS) $(SOURCES) -o $(TARGET)
+
+#run: $(TARGET)
+#	./$(TARGET)
+
+#clean:
+#	rm -f $(TARGET)
+
+#.PHONY: run clean 
