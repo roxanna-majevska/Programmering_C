@@ -8,6 +8,10 @@ typedef struct {
     int birth_year;
 } Student;
 
+// Varför const Student *?
+// * : vi skickar bara adressen (8 bytes) i stället för att kopiera hela studenten (154 bytes)
+// const : lovar att print_student bara tittar på studenten och inte ändrar den
+
 void print_student(const Student *s){
     printf("%s %s, %s, född %d\n", s->first_name, s->last_name, s->city, s->birth_year);
 }
