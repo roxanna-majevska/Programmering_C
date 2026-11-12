@@ -13,5 +13,5 @@
 | TC-09 | REQ-07, REQ-06 | gräns    | 30 / 29               | Normal                    | Normal                    | Godkänd |
 | TC-10 | REQ-07         | utanför  | 70                    | Gränsen måste vara 0-60°C | Gränsen måste vara 0-60°C | Godkänd |
 | TC-11 | REQ-07         | utanför  | -1                    | Gränsen måste vara 0-60°C | Gränsen måste vara 0-60°C | Godkänd |
-| TC-11 | REQ-07         | gräns    | 0 / 20                | För varmt!                | För varmt!                | Godkänd |
-| TC-12 | REQ-05         | fel text | abc (som gräns)       | Fel input                 | Fel input                 | Godkänd |
+| TC-12 | REQ-07         | gräns    | 0 / 20                | För varmt!                | För varmt!                | Godkänd |
+| TC-13 | REQ-05         | fel text | abc (som gräns)       | Fel input                 | Fel input                 | Godkänd |
