@@ -4,36 +4,44 @@
 #include "temperature.h"
 
 int main(void) {
-    // 1. En textlåda (50 tecken) för inmatningen
-    char text[50];
+    char text[50];   // textlåda för inmatningen
+    char *end;       // visar var strtol stannade
+    long value;      // talet från strtol
 
-    // 2. Fråga "Temperatur: " och läs med fgets, ta bort Enter med strcspn
-    printf("Temperaturen: ");
+    // VARNINGSGRÄNS                            (REQ-07)
+    printf("Välj varningsgräns (0-60): ");
     fgets(text, sizeof(text), stdin);
     text[strcspn(text, "\n")] = 0;
 
-    // 3. Gör om texten till ett tal med strtol:     (REQ-01)
-    char *end;
-    long value = strtol(text, &end, 10);
-
-    // 4. Var stannade strtol?                       (REQ-05)
-    //      stannade direkt (end == text) ELLER skräp efter (*end != '\0')
-    //      → skriv "Fel input" och avsluta (return 1)
-    if (end  == text || *end != '\0') {
+    value = strtol(text, &end, 10);
+    if (end  == text || *end != '\0') {     //  (REQ-05)
         printf("Fel input\n");
         return  1;
     }
 
-    // 5. Gör om till int: int temp = (int) value;
-    int  temp = (int) value;
+    int limit = (int) value;
+    if (!is_valid_limit(limit)) {           // (REQ-07)
+        printf("Gränsen måste vara 0-60°C\n");
+        return 1;
+    }    
 
-    // 6. Om INTE is_valid_temperature(temp)        (REQ-04)
-    //      → skriv "Ogiltig temperatur" och avsluta (return 1)
-    if (!is_valid_temperature(temp)){
+    // TEMPERATUR                              (REQ-01)
+    printf("Temperaturen: ");
+    fgets(text, sizeof(text), stdin);
+    text[strcspn(text, "\n")] = 0;
+
+    value = strtol(text, &end, 10);
+    if (end == text || *end != '\0'){
+        printf("Fel input\n");
+        return 1;
+    }
+      
+    int temp = (int) value;
+    if (!is_valid_temperature(temp)){       //  (REQ-04)
         printf("Ogiltig temperatur");
         return 1;
     }
-    // 7. Annars: skriv ut classify_temperature(temp) (REQ-02, REQ-03, REQ-06)
-    printf("%s\n", classify_temperature(temp));
+    // RESULTAT (REQ-02, REQ-03, REQ-06)
+    printf("%s\n", classify_temperature(temp, limit));
     return 0;
 }
